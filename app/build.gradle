@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+ext {
+    SUPPORT_LIBRARY_VERSION = '27.1.1'
+}
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.example.wangchong.mvpdemo"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation "com.android.support:cardview-v7:${SUPPORT_LIBRARY_VERSION}"
+    implementation "com.android.support:support-annotations:${SUPPORT_LIBRARY_VERSION}"
+    // 解析JSON
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    // 图片加载
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
+    // retrofit 2
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    // 持久化 Cookie
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+    // RxJava 2
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.12'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    // AutoDispose
+    implementation 'com.uber.autodispose:autodispose:0.7.0'
+    implementation 'com.uber.autodispose:autodispose-android:0.7.0'
+    implementation 'com.uber.autodispose:autodispose-android-archcomponents:0.7.0'
+
+    // okhttp 3
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    debugImplementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+    // 权限管理
+    implementation 'com.yanzhenjie:permission:2.0.0-rc3'
+
+    // RxBinding
+    implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.1.1'
+
+
+
+}
