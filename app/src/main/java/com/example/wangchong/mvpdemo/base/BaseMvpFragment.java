@@ -8,12 +8,16 @@ import com.uber.autodispose.AutoDisposeConverter;
 import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
 
 public abstract class BaseMvpFragment <T extends IBasePresenter>  extends BaseFragment  implements IBaseView<T>{
+    /**
+     * 使用MVP的Activity使用这个类
+     */
     protected T presenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setPresenter(presenter);
+        super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -21,5 +25,6 @@ public abstract class BaseMvpFragment <T extends IBasePresenter>  extends BaseFr
         return AutoDispose.autoDisposable(AndroidLifecycleScopeProvider
                 .from(this, Lifecycle.Event.ON_DESTROY));
     }
+
 
 }

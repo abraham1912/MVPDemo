@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.AppBarLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-autoo"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/AppBarLayout01"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,6 +11,8 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
+        app:navigationIcon="@mipmap/back"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_scrollFlags="scroll|enterAlways"
@@ -23,8 +25,30 @@
             android:layout_gravity="center"
             android:text="文字居中"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="right"
+            android:text="123"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="left"
+            android:text="456"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
     </android.support.v7.widget.Toolbar>
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"></View>
 
 </android.support.design.widget.AppBarLayout>
