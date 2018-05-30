@@ -66,16 +66,16 @@ public class RetrofitFactory {
         if (retrofit == null) {
             synchronized (RetrofitFactory.class) {
                 if (retrofit == null) {
-                    // 指定缓存路径,缓存大小 50Mb
+                    // 指定缓存路径,缓存大小 10Mb
                     Cache cache = new Cache(new File(MyApp.AppContext.getCacheDir(), "HttpCache"),
-                            1024 * 1024 * 50);
+                            1024 * 1024 * 10);
 
                     // Cookie 持久化
                     ClearableCookieJar cookieJar =
                             new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(MyApp.AppContext));
 
                     OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                            .cookieJar(cookieJar)
+                            .cookieJar(cookieJar)  //cookie持久化
                             .cache(cache)
                             .addInterceptor(cacheControlInterceptor)
                             .connectTimeout(10, TimeUnit.SECONDS)
