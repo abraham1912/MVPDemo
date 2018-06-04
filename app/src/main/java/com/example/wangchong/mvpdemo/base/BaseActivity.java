@@ -55,11 +55,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
-    protected void showToast(String msg){
+    protected void toast(String msg){
         Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
     }
 
-    protected void showToast(int resourceId){
+    protected void toast(int resourceId){
         Toast.makeText(this,resourceId,Toast.LENGTH_SHORT).show();
     }
 

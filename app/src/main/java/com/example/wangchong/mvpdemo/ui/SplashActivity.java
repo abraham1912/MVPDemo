@@ -60,12 +60,13 @@ public class SplashActivity extends BaseActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .as(this.bindAutoDispose())
                 .subscribe(userInfo -> {
-                    showToast(userInfo.content.userName);
+                    toast(userInfo.content.userName);
                 }, e ->  HandlerHttpError.handlerNetError(e));
     }
 
     @Override
     protected void onDestroy() {
+        RxBus.getInstance().unregister(TAG,observable);
         super.onDestroy();
     }
 }

@@ -2,7 +2,6 @@ package com.example.wangchong.mvpdemo.ui;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,13 +13,10 @@ import com.example.wangchong.mvpdemo.utils.HandlerHttpError;
 import com.example.wangchong.mvpdemo.utils.RetrofitFactory;
 import com.example.wangchong.mvpdemo.utils.RxBus;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
-import retrofit2.HttpException;
 
 public class MainActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener {
     public static final String TAG = "MainActivity";
@@ -48,7 +44,7 @@ public class MainActivity extends BaseActivity implements Toolbar.OnMenuItemClic
                 .observeOn(AndroidSchedulers.mainThread())
                 .as(this.bindAutoDispose())
                 .subscribe(userInfo -> {
-                    showToast(userInfo.content.userName);
+                    toast(userInfo.content.userName);
                 }, e ->   HandlerHttpError.handlerNetError(e));
     }
 
@@ -62,7 +58,7 @@ public class MainActivity extends BaseActivity implements Toolbar.OnMenuItemClic
                 .observeOn(AndroidSchedulers.mainThread())
                 .as(this.bindAutoDispose())
                 .subscribe(cityBean -> {
-                    showToast(cityBean.content.get(0).cityName);
+                    toast(cityBean.content.get(0).cityName);
 
                     //使用Rxbus传递数据
                     RxBus.getInstance().post(SplashActivity.TAG,cityBean);
@@ -85,11 +81,11 @@ public class MainActivity extends BaseActivity implements Toolbar.OnMenuItemClic
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id==R.id.action_search){
-            showToast("123");
+            toast("123");
         }else if (id==R.id.action){
-            showToast("456");
+            toast("456");
         }else if (id==R.id.search){
-            showToast("789");
+            toast("789");
         }
         return super.onOptionsItemSelected(item);
     }
